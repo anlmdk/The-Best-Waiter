@@ -2,19 +2,25 @@
 
 public class Customer : MonoBehaviour
 {
-    public float speed;
+    // Component
     public Animator animator;
 
+    // Customer variable
+    public float speed;
+
+    // Const for animation parameters
     const string WALKING = "Walking";
     const string STOP_WALKING = "stopWalking";
+
+    // Const for compareTags
+    const string PLAYER = "Player";
+    const string CUSTOMER_END = "CustomerEnd";
 
     private void Start()
     {
         animator.GetComponent<Animator>();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (GameManager.gameIsStarted == true)
         {
@@ -24,7 +30,7 @@ public class Customer : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag(PLAYER))
         {
             animator.SetTrigger(STOP_WALKING);
             speed = 0;
@@ -32,7 +38,7 @@ public class Customer : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("CustomerEnd"))
+        if (other.gameObject.CompareTag(CUSTOMER_END))
         {
             animator.SetTrigger(STOP_WALKING);
             speed = 0;

@@ -2,9 +2,13 @@
 
 public class Order : MonoBehaviour
 {
+    public OrderBar orderBar;
+
+    // Maximum order variable
     public int maxOrder = 100;
 
-    public OrderBar orderBar;
+    // Const string compareTag
+    const string PLAYER = "Player";
 
     private void Start()
     {
@@ -17,10 +21,9 @@ public class Order : MonoBehaviour
             GameManager.order = maxOrder;
         }
     }
-
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag(PLAYER))
         {
             if (GameManager.order < maxOrder)
             {

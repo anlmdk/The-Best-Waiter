@@ -3,12 +3,18 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    // Static bools for game action
     public static bool gameIsStarted, gameIsOver, nextLevelCheck;
+
+    // Canvas panels
     public GameObject swipeText, gamePanel, gameOverPanel, nextLevelPanel;
+
+    // Text for money and order Percent
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI orderPercentText;
 
-    public  static int order = 0, money = 0;
+    // We have static order and money variable when start the game
+    public static int order = 0, money = 0;
 
     void Start()
     {
@@ -17,8 +23,8 @@ public class GameManager : MonoBehaviour
         nextLevelCheck = false;
         swipeText.SetActive(true);
         nextLevelPanel.SetActive(false);
-        order = 0;
         Time.timeScale = 1f;
+        order = 0; // Give order equals 0 cause when game retry or next level, the game saved the last percent
     }
     void Update()
     {

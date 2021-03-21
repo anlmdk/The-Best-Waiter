@@ -30,6 +30,7 @@ public class DebugController : MonoBehaviour
         float jumpValue = player.Jump;
         _jump.text = jumpValue.ToString();
     }
+
     // Submit the changing value of the player
     public void SetForwardSpeedValue(string forwardSpeed)
     {
@@ -62,6 +63,7 @@ public class DebugController : MonoBehaviour
         float smoothSpeedValue = camera.SmoothSpeed;
         _smoothSpeed.text = smoothSpeedValue.ToString();
     }
+
     // Submit the changing value of the camera
     public void SetValueX (string offsetX)
     {

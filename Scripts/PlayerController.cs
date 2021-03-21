@@ -23,6 +23,16 @@ public class PlayerController : MonoBehaviour
     const string DEFEAT = "defeat";
     const string VICTORY = "victory";
 
+    // Const for compareTags
+    const string TABLE = "Table";
+    const string FENCES = "Fences";
+    const string CHAIR = "Chair";
+    const string LAMB = "Lamb";
+    const string BANANA = "Banana";
+    const string CUSTOMER = "Customer";
+    const string ORDER = "Order";
+    const string END = "End";
+
     public float SwipeSpeed { get { return swipeSpeed; } set { swipeSpeed = value; } }
     public float ForwardSpeed { get { return forwardSpeed; } set { forwardSpeed = value; } }
     public float Jump { get { return jump; } set { jump = value; } }
@@ -34,7 +44,6 @@ public class PlayerController : MonoBehaviour
 
         animator.SetBool(IS_WALKING, false);
     }
-
     void Update()
     {
         if (GameManager.gameIsStarted == true)
@@ -99,7 +108,7 @@ public class PlayerController : MonoBehaviour
         forwardSpeed = 0;
         StartCoroutine(WaitForLoseAnimation());
     }
-    public void FallingBack()
+    void FallingBack()
     {
         animator.applyRootMotion = !animator.applyRootMotion;
         animator.SetBool(IS_WALKING, false);
@@ -114,6 +123,7 @@ public class PlayerController : MonoBehaviour
     void End()
     {
         animator.SetTrigger(STOP_WALKING);
+        forwardSpeed = 0;
         if (GameManager.order >= 70)
         {
             animator.SetBool(VICTORY, true);
@@ -137,26 +147,26 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Table") || other.gameObject.CompareTag("Fences"))
+        if (other.gameObject.CompareTag(TABLE) || other.gameObject.CompareTag(FENCES))
         {
             FallingForward();
         }
-        if (other.gameObject.CompareTag("Banana") || other.gameObject.CompareTag("Chair")
-           || other.gameObject.CompareTag("Lamb") || other.gameObject.CompareTag("Customer"))
+        else if (other.gameObject.CompareTag(BANANA) || other.gameObject.CompareTag(CHAIR)
+                || other.gameObject.CompareTag(LAMB) || other.gameObject.CompareTag(CUSTOMER))
         {
             FallingBack();
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Order"))
+        if (other.gameObject.CompareTag(ORDER))
         {
             TextingWalk();
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("End"))
+        if (other.gameObject.CompareTag(END))
         {
             End();
         }
