@@ -1,8 +1,6 @@
 ## The Best Waiter
 
-This game scripts are **non-commercial** and created for *Crazyhub* program.
+#### This game scripts are **non-commercial** and created for *Crazyhub* program. The game is a prototype and it's type hyper casual.
 
-#### The game is a prototype and it's type hyper casual.
-
-### Controls 
+### Controls
 ##### Swipe finger on the screen left or right and move up for jump.
