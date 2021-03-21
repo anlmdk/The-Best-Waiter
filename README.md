@@ -3,7 +3,7 @@
 This game scripts are **non-commercial** and created for *Crazyhub* program. The game is a prototype and it's type hyper-casual. 
 
 ## Game About
-This level you will see restaurant on the bridge. Player is a waitress and she will take order on this small level. If the player got %70 or more order, the player can skip to next level. If the player didn't get %70 or more order, the level retry. If the player hit any obstacle, the level will retry.
+This level you will see restaurant on the bridge. Player is a waitress and she will take order on this small level. If the player got %70 or more order, the player can skip to next level. If the player didn't get %70 or more order, the level retry. If the player hit any obstacle, the level retry.
 
 ## Controls
 ##### Swipe finger on the screen left or right and move up for jump.
